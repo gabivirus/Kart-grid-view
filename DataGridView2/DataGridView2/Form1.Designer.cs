@@ -38,11 +38,13 @@ namespace DataGridView2
             this.TotalBox = new System.Windows.Forms.TextBox();
             this.PdtBox = new System.Windows.Forms.TextBox();
             this.labelPdt = new System.Windows.Forms.Label();
-            this.valueBox = new System.Windows.Forms.TextBox();
+            this.ValueBox = new System.Windows.Forms.TextBox();
             this.labelValue = new System.Windows.Forms.Label();
             this.QttBox = new System.Windows.Forms.TextBox();
             this.labelQtd = new System.Windows.Forms.Label();
             this.AddBtn = new System.Windows.Forms.Button();
+            this.DelBtn = new System.Windows.Forms.Button();
+            this.ClearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,12 +120,13 @@ namespace DataGridView2
             this.labelPdt.TabIndex = 3;
             this.labelPdt.Text = " Produto:";
             // 
-            // valueBox
+            // ValueBox
             // 
-            this.valueBox.Location = new System.Drawing.Point(14, 81);
-            this.valueBox.Name = "valueBox";
-            this.valueBox.Size = new System.Drawing.Size(161, 20);
-            this.valueBox.TabIndex = 6;
+            this.ValueBox.Location = new System.Drawing.Point(14, 81);
+            this.ValueBox.Name = "ValueBox";
+            this.ValueBox.Size = new System.Drawing.Size(161, 20);
+            this.ValueBox.TabIndex = 6;
+            this.ValueBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValueBox_KeyPress);
             // 
             // labelValue
             // 
@@ -154,7 +157,7 @@ namespace DataGridView2
             // 
             this.AddBtn.BackColor = System.Drawing.Color.White;
             this.AddBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AddBtn.Location = new System.Drawing.Point(587, 31);
+            this.AddBtn.Location = new System.Drawing.Point(493, 31);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(63, 118);
             this.AddBtn.TabIndex = 9;
@@ -162,15 +165,41 @@ namespace DataGridView2
             this.AddBtn.UseVisualStyleBackColor = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
+            // DelBtn
+            // 
+            this.DelBtn.BackColor = System.Drawing.Color.White;
+            this.DelBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DelBtn.Location = new System.Drawing.Point(587, 383);
+            this.DelBtn.Name = "DelBtn";
+            this.DelBtn.Size = new System.Drawing.Size(63, 20);
+            this.DelBtn.TabIndex = 10;
+            this.DelBtn.Text = "Excluir";
+            this.DelBtn.UseVisualStyleBackColor = false;
+            this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
+            // 
+            // ClearBtn
+            // 
+            this.ClearBtn.BackColor = System.Drawing.Color.White;
+            this.ClearBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ClearBtn.Location = new System.Drawing.Point(587, 31);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(63, 118);
+            this.ClearBtn.TabIndex = 12;
+            this.ClearBtn.Text = "Limpar";
+            this.ClearBtn.UseVisualStyleBackColor = false;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
             // Table
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 450);
+            this.ClientSize = new System.Drawing.Size(663, 418);
+            this.Controls.Add(this.ClearBtn);
+            this.Controls.Add(this.DelBtn);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.QttBox);
             this.Controls.Add(this.labelQtd);
-            this.Controls.Add(this.valueBox);
+            this.Controls.Add(this.ValueBox);
             this.Controls.Add(this.labelValue);
             this.Controls.Add(this.PdtBox);
             this.Controls.Add(this.labelPdt);
@@ -196,11 +225,13 @@ namespace DataGridView2
         private System.Windows.Forms.TextBox TotalBox;
         private System.Windows.Forms.TextBox PdtBox;
         private System.Windows.Forms.Label labelPdt;
-        private System.Windows.Forms.TextBox valueBox;
+        private System.Windows.Forms.TextBox ValueBox;
         private System.Windows.Forms.Label labelValue;
         private System.Windows.Forms.TextBox QttBox;
         private System.Windows.Forms.Label labelQtd;
         private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.Button DelBtn;
+        private System.Windows.Forms.Button ClearBtn;
     }
 }
 
